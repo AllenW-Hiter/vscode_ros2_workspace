@@ -1,12 +1,16 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
+	// 定义了要使用的 Dockerfile 路径。
 	"dockerFile": "Dockerfile",
+	// 将 WORKSPACE 参数的值设置为 ${containerWorkspaceFolder} 
 	"build": {
 		"args": {
 			"WORKSPACE": "${containerWorkspaceFolder}"
 		}
 	},
+	// 指定远程容器中的默认用户为 ros。
 	"remoteUser": "ros",
+	// runArgs 定义了在启动容器时传递的额外 Docker 运行参数
 	"runArgs": [
 		"--network=host",
 		"--cap-add=SYS_PTRACE",
@@ -18,6 +22,7 @@
 		// uncomment to use intel iGPU
 		// "--device=/dev/dri"
 	],
+	// containerEnv 定义了容器中的环境变量
 	"containerEnv": {
 		"DISPLAY": "${localEnv:DISPLAY}", // Needed for GUI try ":0" for windows
 		"WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
@@ -25,7 +30,7 @@
 		"PULSE_SERVER": "${localEnv:PULSE_SERVER}",
 		"LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
 	},
-	// Set *default* container specific settings.json values on container create.
+	// customizations 部分定义了 VS Code 的自定义设置：vscode 对象内的 extensions 数组列出了在容器中自动安装的 VS Code 扩展。这些扩展包括 ROS、Python、C++、YAML、URDF、CMake 等工具的支持，以及代码格式化、拼写检查等实用功能。
 	"customizations": {
 		"vscode": {
 			"extensions": [

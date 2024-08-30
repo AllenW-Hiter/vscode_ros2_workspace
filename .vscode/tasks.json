@@ -1,9 +1,7 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
-        // Build tasks
+        // build 项目
         {
             "label": "build",
             "detail": "Build workspace (default)",
@@ -15,6 +13,7 @@
             },
             "problemMatcher": "$gcc"
         },
+        // debug 项目
         {
             "label": "debug",
             "detail": "Build workspace (debug)",
@@ -28,7 +27,7 @@
             "group": "build",
             "problemMatcher": "$gcc"
         },
-        // Test tasks
+        // 测试任务
         {
             "label": "test",
             "detail": "Run all unit tests and show results.",
@@ -39,7 +38,7 @@
                 "isDefault": true
             }
         },
-        // Clean
+        // 清理构建环境
         {
             "label": "clean",
             "detail": "Run the clean target",
@@ -47,6 +46,7 @@
             "command": "colcon build --cmake-target clean",
             "problemMatcher": "$gcc"
         },
+        // 删除构建的内容
         {
             "label": "purge",
             "detail": "Purge workspace by deleting all generated files.",
@@ -54,6 +54,7 @@
             "command": "sudo rm -fr build install log; sudo py3clean .",
             "problemMatcher": []
         },
+        // 激活 ROS 环境
         {
             "label": "source",
             "detail": "Source workspace",
@@ -61,7 +62,7 @@
             "command": "source /opt/ros/humble/setup.bash",
             "problemMatcher": []
         },
-        // Linting and static code analysis tasks
+        // 格式化代码，静态代码分析
         {
             "label": "fix",
             "detail": "Reformat files with uncrustify.",
@@ -193,7 +194,7 @@
             ],
             "problemMatcher": []
         },
-        // Workspace editing tasks
+        // 工作空间编辑任务
         {
             "label": "new ament_cmake package",
             "detail": "Create a new ROS cpp package from a template.",
